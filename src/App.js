@@ -1,5 +1,23 @@
 import "./styles.css";
 
+export const players = [
+  {
+    name: "Guil",
+    score: 50
+  },
+  {
+    name: "Treasure",
+    score: 85
+  },
+  {
+    name: "Ashley",
+    score: 95
+  },
+  {
+    name: "James",
+    score: 80
+  }
+];
 
 const Header = (props) => {
   return (
@@ -33,11 +51,20 @@ const Player = (props) => {
 }
 
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="scoreboard">
-      <Header title="Scoreboard" totalPlayers={2} />
-      <Player name="Alex" score={50} />
+      <Header 
+        title="Scoreboard" 
+        totalPlayers={props.initialPlayers.length} 
+      />
+    
+      {props.initialPlayers.map( player => 
+        <Player 
+          name={player.name}
+          score={player.score}
+        />
+      )}
     </div>
   );
 }
