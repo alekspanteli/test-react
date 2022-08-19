@@ -10,12 +10,37 @@ const Header = () => {
   );
 }
 
-export default function App() {
+const Counter = () => {
   return (
-    <div className="App">
+    <div className="counter">
+        <button className="counter-action decrement"> - </button>
+        <span className="counter-score">35</span>
+        <button className="counter-action increment"> + </button>
+    </div>
+  )
+}
+
+const Player = () => {
+  return (
+    <div className="player">
+      <span className="player-name">
+        Alex
+      </span>
+      
+      <Counter />
+    </div>
+  )
+}
+
+
+const App = () => {
+  return (
+    <div className="scoreboard">
       <Header />
-      <h1>Hello Johny!!!</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <Player />
     </div>
   );
 }
+
+
+export default App;
