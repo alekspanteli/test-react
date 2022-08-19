@@ -1,24 +1,5 @@
 import "./styles.css";
 
-export const players = [
-  {
-    name: "Guil",
-    score: 50
-  },
-  {
-    name: "Treasure",
-    score: 85
-  },
-  {
-    name: "Ashley",
-    score: 95
-  },
-  {
-    name: "James",
-    score: 80
-  }
-];
-
 const Header = (props) => {
   return (
     <header>
@@ -63,6 +44,7 @@ const App = (props) => {
         <Player 
           name={player.name}
           score={player.score}
+          key={player.id.toString()}
         />
       )}
     </div>
