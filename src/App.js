@@ -54,6 +54,7 @@ const Player = (props) => {
   return (
     <div className="player">
       <span className="player-name">
+        <button className="remove-player" onClick={() => props.removePlayer(props.id) }>X</button>
         {props.name}
       </span>
       
@@ -90,6 +91,14 @@ class App extends React.Component {
     ]
   }
 
+  handleRemovePlayer = (id) => {
+    this.setState( prevState => {
+        return {
+             players: prevState.players.filter(p => p.id !== id )
+        }
+    });
+  }
+
   render (){
     return (
       <div className="scoreboard">
@@ -102,6 +111,8 @@ class App extends React.Component {
           <Player 
             name={player.name}
             key={player.id.toString()}
+            id={player.id}
+            removePlayer={this.handleRemovePlayer}
           />
         )}
       </div>
